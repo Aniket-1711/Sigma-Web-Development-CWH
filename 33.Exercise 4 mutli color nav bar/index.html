@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Color Navigation Bar</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root{
+            --color1:burlywood;
+            --color2:pink;
+            --color3:gray;
+            --color4:aqua;
+            --color5:black;
+        }
+
+        ul{
+            display:flex;
+            background-color: var(--color4);
+            border: 2px solid var(--color5);
+            width: 400px;
+            margin:20px  auto;
+            
+        }
+
+        ul li{
+            list-style: none;
+            padding: 15px;
+            border: 2px solid var(--color5);
+            margin:1px auto;
+        }
+        .e1{
+            background-color: var(--color1);
+        }
+
+        .e2{
+            background-color: var(--color2);
+        }
+
+        .e3{
+            background-color: var(--color3);
+        }
+
+        .e4{
+            --color1:thistle;
+            background-color: var(--color1,red);
+        }
+
+        a{
+            --color:black;
+            color: var(--color);
+            font-weight: bolder;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="e1"><a href="/">Home</a></li>
+                <li class="e2"><a href="/">Services</a></li>
+                <li class="e3"><a href="/">About Us</a></li>
+                <li class="e4"><a href="/">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

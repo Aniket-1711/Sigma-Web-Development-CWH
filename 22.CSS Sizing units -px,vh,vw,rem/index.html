@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Sizing units</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            box-sizing: border-box;
+            border: 2px solid blue;
+            background-color: aquamarine;
+            /* width: 100vw; adjust the size to device width */
+
+            /*****.....to set the element to center use margin:auto; and this is appllicable only for block elements not for inline elements....****/
+            width: 80vw;
+            margin: 23px auto;
+            height: 10vh;
+
+        }
+
+        .container {
+            box-sizing: border-box;
+            border: 2px solid blue;
+            background-color: aquamarine;
+            width: 80vw;
+            /*takes 80% of device width*/
+            margin: auto;
+            /*sets the block element to center*/
+            height: 80vh;
+            /*sets the height to 80% of the device height*/
+            font-size: 18px;
+          
+        }
+
+        .container p {
+            font-size: 2em;
+            /*this makes the font of the para 2 times the font of the inherited size which is 18px ie. 18*2=36px;*/
+
+            font-size: 2rem;
+            /*this will change the font size from 36px to 24px, 24px because 2 times the font size of root element , this font size overrides the above font size!!!*/
+
+            min-height: 70vh;
+            /*as we add content the size of the box automatically spreads!*/
+
+            width: 50%; /*sets the paragraph width to 50% of the parent width, here 50% of container width*/
+            border: 5px solid burlywood;
+            
+            
+        }
+
+        .mycont{
+            box-sizing: border-box;
+            background-color: thistle;
+            color: purple;
+            width: 100vmin; /*here the width is = 100 of height as am in pc and in pc height is < width*/
+            /*height: 100vmax; this height will be equal to width of the device*/
+
+
+        }
+
+        html {
+            font-size: 12px;
+            /*this is root element*/
+            /*here this will be applied to class box as it is not given font size! if it was given font size it would have taken the class font size*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        This a box
+    </div>
+
+    <div class="container">
+        Let's see how this em works
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam fuga neque ea debitis tempora optio alias,
+            assumenda, esse, minus explicabo aspernatur? Non, distinctio accusamus, eveniet vitae dolorem aut facere
+            voluptates voluptatum nam ratione necessitatibus!
+        </p>
+    </div>
+    <div class="mycont">
+        <div>
+        Am another class to demonstrate vmin and vmax
+        </div>
+
+        <div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum tempore deleniti, odio officiis sit pariatur ipsam repellat aliquam quibusdam velit. Harum, excepturi repudiandae?
+        </div>
+    </div>
+</body>
+
+</html>

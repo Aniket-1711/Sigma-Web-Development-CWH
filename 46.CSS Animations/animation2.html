@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Animations</title>
+    <style>
+        .container{
+            width: 80vw;
+            height: 30vh;
+            background-color: beige;
+        }
+
+        .box{
+            width: 80px;
+            height: 25px;
+            background-color: maroon;
+            color: whitesmoke;
+
+            animation: animation1 3s linear 1s, animation2 5s ease-in 4, animation3 5s ease-in 2;
+        }
+
+        @keyframes animation1 {
+            from{
+
+            }
+
+            to{
+                transform: translateX(100px) translateY(100px);
+            }
+        }
+
+        @keyframes animation2 {
+            25%{
+                background-color: aquamarine;
+            }
+            50%{
+                background-color: red;
+            }
+
+            75%{
+                background-color: thistle;
+            }
+
+            100%{
+                background-color: burlywood;
+            }
+        }
+
+        @keyframes animation3 {
+            25%{
+                transform: translateX(100px) translateY(100px);
+            }
+
+            50%{
+                transform: translateX(250px) translateY(100px);
+            }
+
+            75%{
+                transform: translateX(250px) translateY(250px);
+            }
+
+            100%{
+                transform: translateX(100px) translateY(250px);
+            }
+        } 
+            
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">WELCOME</div>
+    </div>
+</body>
+</html>

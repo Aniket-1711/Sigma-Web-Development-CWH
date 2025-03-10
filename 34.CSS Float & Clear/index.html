@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Float & Clear</title>
+        <style>
+            img{
+                /* float: left;  this makes the image set on the left and next element in the right! */
+                float: right; /*image will be on the right and next elements will be on the left*/ 
+            }
+        .cards{
+            border: 2px solid black;
+            background-color: thistle;
+            display: flow-root; /*if the image overflows the container then it will fit in the container/parent .....to see the effect increase the size of the image*/
+        }
+
+        .card{
+            border: 2px solid blueviolet;
+        }
+
+        div:nth-child(3){  /*n-th child is used to set properties to that child, in this case it's 3rd child*/
+            background-color: burlywood;
+            /*clear: left; if the image is on left then it will not allow that image to float on left but no restriction on right*/
+            clear: right; /*this will not allow the image to float on right and no restriction on left*/
+            /* clear:both will not allow the image/element to float on left and right */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- .cards>.cards*3 use this to get the following : -->
+    <div class="cards">
+        <img src="PPYA Bappa.jpg" alt="Bappa" height="319px">
+        <div class="cards">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed maiores quidem ratione earum beatae perferendis eveniet quia, minima neque, nemo rerum dolorum adipisci nihil, hic ullam perspiciatis est eius vel error? Minima, nostrum rerum alias necessitatibus laudantium assumenda aspernatur accusantium. Deserunt ratione accusantium atque officia impedit id eum maxime deleniti quibusdam nesciunt ipsum, recusandae neque?.</div>
+        <div class="cards">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt recusandae deleniti eius tempore in placeat earum corporis perferendis? Animi, qui illo aut omnis ducimus dolore vel fuga numquam voluptate, deserunt reiciendis odit beatae eaque aspernatur. Optio adipisci repellendus molestiae laborum maxime soluta temporibus obcaecati beatae accusamus tenetur numquam reiciendis mollitia illum, dolorem nobis incidunt aspernatur nihil minima dolorum blanditiis nesciunt suscipit sint perferendis quisquam. Atque ullam placeat nam distinctio nihil sint velit obcaecati itaque minima non sit ipsam doloribus quo enim debitis deleniti aut assumenda rerum maiores voluptatem dolores, quia quae ipsa odit. Obcaecati debitis cumque ea perferendis laborum numquam, cupiditate molestiae ipsam aspernatur porro iusto nesciunt nulla, dolores sequi ex sunt, doloremque optio pariatur in a! Quod maiores a possimus consectetur minus? Aspernatur fuga dolor dolorem optio, quasi inventore similique eum rerum commodi blanditiis voluptates hic vero nesciunt ut doloribus reiciendis. Distinctio nesciunt sequi, repellat accusantium quibusdam debitis quaerat ex corporis voluptates ratione delectus nostrum qui numquam id ad vel tenetur nemo, iste neque! Distinctio tempora cumque architecto sapiente suscipit, nihil minima quidem nobis natus magnam! Necessitatibus impedit aperiam perferendis non eveniet vero corporis, consequatur velit laborum nulla, voluptatem repellat nesciunt, labore odit similique inventore eaque. Facilis sequi saepe aspernatur labore ratione ipsam ex omnis. Omnis pariatur illum velit, perspiciatis eos deserunt quos minima eveniet voluptas iure, libero corporis error ipsum odit blanditiis accusantium, impedit sapiente aspernatur hic voluptates nemo. Vitae cupiditate pariatur eveniet assumenda quam sit exercitationem eaque at repellat quos voluptatum, aliquam reiciendis soluta aliquid minus voluptate asperiores enim iure dolore voluptates vero repellendus. Eum vero, ratione cum quia consequuntur reprehenderit illo excepturi culpa quaerat deleniti quas error modi nam temporibus labore laborum expedita quis exercitationem eveniet. Voluptate minus sequi veritatis excepturi exercitationem fugiat accusamus error quaerat assumenda, consequatur quidem deserunt esse quo itaque odit atque animi nobis repellendus ullam necessitatibus provident tenetur beatae! Doloremque eum voluptatem aliquam consectetur accusantium quia similique, voluptates aut impedit quaerat ipsam accusamus id sunt sed nisi possimus, ab alias culpa quasi tempora obcaecati laboriosam.</div>
+        <div class="cards">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed consequuntur provident eum reprehenderit, iusto vero accusantium, molestias aperiam modi iure nobis maxime adipisci. Repudiandae tempore nihil aspernatur! Possimus, eveniet est!</div>
+    </div>
+</body>
+</html>

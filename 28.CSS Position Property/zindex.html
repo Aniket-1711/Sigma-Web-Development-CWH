@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Index positioning</title>
+</head>
+<body>
+    <div style="position: relative; z-index:1; background: red; width: 100px; height: 100px; "></div>
+<div style="position: relative; z-index: 2; background: blue; width: 100px; height: 100px;margin-top: -30px;"></div>
+
+
+<!-- necessary condition for z-index is :
+ 1.it must have position other than static
+ 
+ 2. the content must be capable to overlap-->
+
+<!-- to see the effect we better don't use margin or use a margin that would atleast overlap the content to see z-index -->
+
+<!-- if the element has the z-index >=the z-index or prev element then it will overlap -->
+</body>
+</html> 

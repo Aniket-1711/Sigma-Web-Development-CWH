@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More On CSS Selectors</title>
+    <style>
+        /* if i say .box:first-child that means that am referring to first box;
+        ie. if .box is the first child of it's parent then apply following property */
+
+        /* .boxes:first-child{
+            color: red;
+        } */
+
+        /* the above and below div does the same work */
+        div:first-child{
+            background-color: yellow;
+        }
+
+        .box:first-child{
+            background-color: blue;
+        }
+
+        .box::first-line{
+            color:red; /*sets the first line of the device to red color text .
+            NOTE: The size of the line may vary as per the device but the first line is red text for sure*/
+        }
+
+        /* another use of universal selector --> */
+        .boxes *{
+            border: 2px solid black;
+        }
+
+        /* element selector */
+        [data-color="primary"]{ /*here we can use grouping also  nothing but specifiying different selectors separeated by ','*/
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .box:nth-child(odd){
+            padding: 20px; /*applies padding to boxes 1 and 3 similarly we also have (even)*/
+        }
+
+        .box:nth-last-child(2){
+            padding: 50px; /*from last second child -sets the padding of box 2 to 50px*/
+        }
+
+        /* pseudo elements before and after */
+        .boxes::before{
+            content: "Good morning!!";
+            background-color: thistle;
+            /* adds this content before the boxes with the above properties */
+        }
+
+        .boxes::after{
+            content: "Have ur breakfast!!";
+            background-color: burlywood;
+            /* adds this content after boxes with the above properties */
+        }
+
+        /* seeing the selection property when we select the content of this page it will change it's background color and text color ,, only when we select the text in the website , if u want for boxes use class selector */
+       .box::selection{ /*can also use ::selection to apply to the whole page*/
+            background-color: black;
+            color: aqua;
+        }
+
+        .box::first-letter{
+            font-size: 50px; /*first letter of all boxes will be of 50px*/
+        }
+
+       input::placeholder{
+        color: red;  /*changes the placeholder text color*/
+       }
+
+    </style>
+</head>
+<body>
+    <div class="boxes">
+        <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores similique autem provident est perspiciatis nesciunt voluptate mollitia error, enim et possimus corrupti. Facere nostrum quam doloribus rem iste sapiente quod magnam iure veritatis quis culpa illo quas maiores debitis excepturi voluptas necessitatibus corrupti blanditiis repellat quaerat repellendus, dolorem amet. Dolor omnis nam nostrum sunt ad veritatis repellat suscipit, consequatur corporis eum, harum eius culpa impedit, necessitatibus voluptatibus deserunt eveniet voluptas. Sed, quo consequatur voluptas sequi perspiciatis expedita quam a molestiae aliquam, amet fuga voluptates accusantium minus tempora, quibusdam optio eveniet pariatur eos laudantium debitis ab animi officiis architecto numquam.</div>
+        <div data-color="primary" class="box">Hey I am Box 2</div>
+        <div class="box">Hey I am Box 3</div>
+        <input type="text" placeholder="Type something..">
+    </div>
+</body>
+</html>

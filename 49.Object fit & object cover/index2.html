@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image Properties</title>
+    <style>
+        .container{
+            border: 2px solid black;
+            width: 300px;
+            height: 200px;
+            
+            /* we can add image as backgruond */
+            background-image: url("https://akm-img-a-in.tosshub.com/indiatoday/images/story/202412/indias-virat-kohli-263318109-16x9_1.jpg?VersionId=RKmXY3DI4ThaS_3mAwM9LwRPqwqoGJaG&size=690:388");
+
+            background-position: center top;
+            /* displays the center and top part of the image, see the difference by commeting it*/
+
+            /* suppose the image size is less and the container is big then the image will repeat itself in the width if it is small in width and same with height */
+            background-repeat:no-repeat;
+            /* to stop repeating if the image repeats, we can use properties like repeat x repeat y etc and they will work only if the image is short in either x or y , suppose image is short/less in x direction it will repeat in x(width is less)*/
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+</body>
+</html>

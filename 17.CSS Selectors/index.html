@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selctors</title>
+    <style>
+        /* this is element selector */
+        h1{
+            color: red;
+            background-color: thistle;
+        }
+
+        /* this is class selector using . */
+        .typesofcss{
+            background-color: burlywood;
+        }
+
+        /* this is id selector using # */
+        .conclude{
+            background-color: aquamarine;
+        }
+
+        /* pseudo selector */
+        /* this is direct child selector  */
+        h3>ol{
+            color: blueviolet;
+        }
+
+        /* this is indirect child selector / this is known as descendant selector */
+        h3 h3{
+            color: crimson;
+        }
+
+        /*this link is nothing but changing default appearance of link from blue to cornsilk color*/
+        a:link{
+            color: red;   
+        }
+
+        /* once we visit the link the color permanantely changes to the following color */
+        a:visited{
+            color: chartreuse;
+        }
+
+        /* whenever we click on the link the background color change can be observed */
+        a:active{
+            background-color: black;
+        }
+
+        /* as we hover over this link, background color changes */
+         a:hover{
+            background-color: yellowgreen;
+        } 
+    </style>
+</head>
+<body>
+    <h1>Types of Selectors</h1>
+    <h3 class="typesofcss">
+        <ol>
+            <li>element selector</li>
+            <li>class selector</li>
+            <li>id selector</li>
+            <li>pseudo selector</li>
+            <ol type="i">
+                <h3>Subtypes:</h3>
+                <li>direct child</li>
+                <li>inddirect child</li>
+                <li>many more...</li>
+            </ol>
+        </ol>
+    </h3>
+    <div id="conclude">That's all for now!</div>
+    <footer>
+        <a href="https://www.google.com">Google</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Properties</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            
+             /*this makes the block elements behave like inline elements.*/
+            /* padding: 20; */
+            /* margin: 30px; */
+            /* width: 400px; */
+            display:inline;
+             /*But the problem is when we apply margin or padding to this element, except for the top everything is okay, so to avoid this we need to use inline-block*/
+            
+             display: inline-block;
+            border: 2px solid red;
+            padding: 20px;
+            margin: 30px;
+            width: 400px;
+            box-sizing: border-box;
+           
+        }
+
+        .box1{
+            /* display: none;  removes the first box and the second box occupies it's place*/
+
+            visibility: hidden;/*here the first box is hidden, it's space is reserved as it is*/
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">
+        I am a box
+    </div>
+    <div class="box">I am another box</div>
+    <span>I am a good</span>
+    <span>boy!</span>
+
+</body>
+</html>

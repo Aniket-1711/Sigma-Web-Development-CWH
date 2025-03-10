@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Position Property</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .parent{
+            border: 2px dashed black;
+            margin:20px;
+            padding: 34px;
+
+        }
+
+        .box{
+            border: 2px solid crimson;
+            margin: 3px;
+            padding: 20px;
+            height: 40vh;
+            width: 80vw;
+        }
+
+        .box1{
+            background-color: antiquewhite;
+            position: relative;
+           
+        }
+        .box2{
+            background-color:burlywood;
+
+            position:relative;
+            /* this means that we can change it's position wrt to it's current position either from top or bottom and either from left or right */
+            top: 20px; 
+            left: 20px;
+            
+
+             
+        }
+        .box3{
+            background-color:cadetblue
+        }
+        .box4{
+            background-color: thistle;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <p>This is to demonstrate relative position</p>
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+    </div>
+</body>
+
+</html>
+
+<!-- By default the position is static that means how ever we place the content it will remain as it is -->

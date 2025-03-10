@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Shrink and Self Align</title>
+    <style>
+        .container {
+            border: 2px solid red;
+            height: 300px;
+            width: 800px;
+            display: flex;
+            gap: 10px;
+
+            align-items: center;
+
+        }
+
+        .item {
+            background-color: aquamarine;
+            border: 2px solid black;
+            height: 100px;
+            width: 100px;
+            /* flex-grow: 1; */
+            /* by default flex grow of items is 0 we changed it to 1 for all boxes */
+        }
+
+        .item1{
+            /* for item1 we set flex grow as 2 that is it will be growing 2times the other */
+            /* flex-grow: 2; */
+            /* flex-shrink: 10; */
+            /* as the width of the device changes, it will shrink 2times the other box */
+
+            /* the concept of flex shrink and grow is not clear revise whenever we get to encounter practically*/
+
+            align-self: flex-end;
+            /* will be in it's position but shifted towards the end of the main axis */
+        }
+
+        .item5{
+            align-self: flex-start;
+            /* only box 5 will be at it's position but shifted towards top of the main axis */
+
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="item item1">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item item5">5</div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </main>
+</body>
+</html>

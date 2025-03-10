@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+         } 
+
+
+        /* adding background color */
+        .box{
+            background-color: rgb(158, 105, 208);
+        }
+
+        .box1{
+            color: crimson;
+            padding: 10px;
+            margin: 30px;
+            border: 3px solid royalblue;
+            height: 200px; /*sets only the content height to 200px excluding padding and border*/
+            box-sizing: border-box; /*sets the height including padding and border as 200px*/
+        }
+
+        .box2{
+            color: darkgreen;
+            padding: 10px;
+            margin: 70px;
+            border: 3px solid crimson;
+            height: 200px; /*sets only the content height to 200px excluding padding and border*/
+            box-sizing: border-box; /*sets the height including padding and border as 200px*/
+        }
+
+    </style>
+</head> 
+<body>
+    <div class="box box1" >
+        I am Here to demonstrate CSS Box model and also the Margin Collapse concept
+    </div>
+
+    <div class="box box2">
+        Hope u r now clear with the concept of CSS Box Model
+    </div>
+</body>
+</html>

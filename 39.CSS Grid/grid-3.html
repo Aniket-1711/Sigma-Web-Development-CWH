@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid fr Unit and Other properties</title>
+    <style>
+         .container{
+            border: 2px solid black;
+            display: grid;
+            width: 80vw;
+            /* sets the container width to 80% of total device width */
+
+            grid-template-columns:1fr 2fr 1fr ;
+            /* there will be 3 columns, the first column will occpy 1/4 of the total width of the container
+            the second column will occpy 2/4 width of the container and third column will occupy 1/4 width of the container
+            
+            /* we can aslo use repeat() function like: grid-template-columns:repeat(4,1fr) this will repeat 4 columns of each 1/4th width of the container */
+
+            /*here fr mean fraction ---suppose 1fr 1fr and 1fr is given that means each column will occupy 1/3rd fraction of the container width*/
+
+            /* it is suggested not to use padding property rather using gap property in both flex and grid*/
+            gap: 30px 100px;
+            /* row gap 30px and column gap 100px */
+
+        }
+
+        .item{
+            border: 2px solid red; 
+            height: 55px;
+            /* width: 55px; */
+
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="item item-1">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item item-4">4</div>
+            <div class="item">5</div>
+        </div>
+    </main>
+</body>
+</html>

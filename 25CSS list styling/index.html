@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS List Styling</title>
+    <style>
+        /* Here the list consists of 2 parts, one is marker and the other is the text */
+        /* if you want to change the marker we have options like none, devanagari, image etc to set different markers to a list */
+
+        /* incase we want to make it horizontal : 
+         ul{
+            display: flex;
+            
+        } 
+            */
+
+
+        ul li{
+            /* incase we want to make ti horizontal 
+            padding: 20px;
+            list-style: none;
+            */
+
+             /* list-style: none;  this would remove the marker, mostly we can use such things in navigation bar lists */
+            list-style: devanagari;
+
+            /* list-style-type: ""; we can set emoji also  */
+
+            background-color: thistle;
+            /* when we give background color or border, it's applicable only to text but not to the marker, to apply it to marker as well we use: list-style-position:inside;*/
+
+            list-style-position:inside;
+            border: 2px solid ;
+            /* list-style-image: url(https://i.pinimg.com/736x/00/ef/1b/00ef1b89f71b4ef48513ecdacc414f9b.jpg); uncomment to see the output */
+
+
+
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About us</li>
+            <li>Contact us</li>
+        </ul>
+    </nav>
+</body>
+</html>

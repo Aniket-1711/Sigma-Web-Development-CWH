@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form and Input elements</title>
+</head>
+
+<body>
+    <form action="https://www.google.com">
+        <!-- here we have used action and given the google website, whenever we click on submit it redirects to the google site -->
+        <div>
+            <label for="username">User Name:</label>
+            <!-- label gives the title to the form element -->
+            <input type="text" id="username" name="username" placeholder="Enter user name">
+            <!-- the id of the input element gets linked with the label tag (for) -->
+            <!-- input tag doesn't need closing tag, it is self sufficient tag -->
+        </div>
+
+        <div>
+            <label for="gender">Gender:</label>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="female">Female</label>
+        </div>
+
+        <div>
+            <label for="Specialization">Specialization:</label>
+            <select name="Specialization" id="Specialization">
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <option value="c++">C++</option>
+            </select>
+        </div>
+        
+
+       <div>
+        <label for="address">Address:</label>
+        <textarea name="address" id="address" cols="20" rows="5" placeholder="Enter valid address" style="resize:none"></textarea>
+       </div>
+
+        <div>
+            <input type="checkbox" name="t&c" id="t&c">
+            <label for="t&c">Accept terms and conditions</label>
+            <br>
+            <br>
+            <button>Submit</button>
+        </div>
+    </form>
+</body>
+
+</html>

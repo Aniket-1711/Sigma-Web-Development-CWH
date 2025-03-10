@@ -1,0 +1,40 @@
+						*****Inline and Block elements*****
+
+Commonly used Inline elements
+<a> - Defines a hyperlink.
+<span> - Generic container for styling or grouping inline text.
+<strong> - Defines important text (usually bold by default).
+<em> - Emphasizes text (usually italic by default).
+<img> - Embeds an image.
+<code> - Displays inline code snippets.
+<label> - Defines a label for a form control.
+<input> - Defines an input field (text, checkbox, radio, etc.).
+<button> - Defines a clickable button.
+<abbr> - Represents an abbreviation.
+<cite> - Represents the title of a creative work.
+<sup> - Defines superscript text.
+<sub> - Defines subscript text.
+<small> - Defines smaller text (e.g., fine print).
+
+
+
+				************Commmonly used Block elements
+<div> - Generic container for grouping block-level elements.
+<p> - Defines a paragraph.
+<h1> to <h6> - Define headings (from largest to smallest).
+<ul> - Defines an unordered list.
+<ol> - Defines an ordered list.
+<li> - Defines a list item (used inside <ul> or <ol>).
+<table> - Defines a table.
+<tr> - Defines a table row (inside <table>).
+<td> - Defines a table cell (inside <tr>).
+<th> - Defines a table header cell (inside <tr>).
+<header> - Defines a header for a document or section.
+<footer> - Defines a footer for a document or section.
+<section> - Defines a thematic grouping of content.
+<article> - Represents independent content, such as a blog post.
+<aside> - Defines content aside from the main content (like a sidebar).
+<form> - Defines a form for user input.
+<main> - Represents the main content of the document.
+<nav> - Defines navigation links.
+<blockquote> - Indicates a section that is quoted from another source.

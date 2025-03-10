@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Shadows and Outlines</title>
+    <style>
+        .box{
+            margin: 50px;
+            padding: 20px;
+            border: 4px solid rebeccapurple;
+            box-shadow:5px 15px 5px rgb(241, 34, 34);
+            outline: 4px solid yellow;
+            /*as they are almost close together we can use outline offset to separate border and outline*/ 
+            outline-offset: 30px;
+        }
+        p{
+            text-shadow: 2px 5px 2px thistle;
+            border: 3px solid purple;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        
+        I am a box
+
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor nobis, ipsa eius tenetur quos voluptatibus non est dicta porro aspernatur sunt ullam quibusdam magnam iste? Esse sint eaque adipisci! Facilis atque iure ratione quos ipsum, nemo in inventore quidem veniam!</p>
+    </div>
+</body>
+</html>

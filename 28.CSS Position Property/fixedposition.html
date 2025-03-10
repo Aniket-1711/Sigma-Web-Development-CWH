@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Positioning</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .parent{
+        border: 2px dashed black;
+        margin:20px;
+        padding: 34px;
+
+        /* step 2 giving position to parent */
+        position: relative;
+
+    }
+
+    .box{
+        border: 2px solid crimson;
+        margin: 3px;
+        padding: 20px;
+        height: 40vh;
+        width: 80vw;
+    }
+
+    .box1{
+        background-color: antiquewhite;
+       
+    }
+    .box2{
+        background-color:burlywood;
+        position: fixed;
+        /* this fixes the position of the element, as we scroll the page the element will be fixed to the page and can be seen throughout the page at same place */
+        height:3vw;
+    }
+    .box3{
+        background-color:cadetblue;
+    }
+    .box4{
+        background-color: thistle;
+    }
+</style>
+</head>
+<body>
+    y>
+    <div class="parent">
+        
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+    </div>
+</body>
+</html>

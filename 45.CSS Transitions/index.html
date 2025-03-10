@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transitions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 40vw;
+            height: 40vh;
+            margin: 100px auto;
+            background-color: aquamarine;
+        }
+
+        .greetbox {
+            width: 70px;
+            height: 20px;
+            background-color: thistle;  /*initial color*/
+
+
+            /* applying transition property */
+            transition-property: transform;
+            /* applies the property on transform property */
+            transition-duration: 4s;
+            /* the transition would last for 4sec */
+            transition-timing-function: cubic-bezier(0.88, 0.13, 0.12, 0.52);
+            /* decides how will the transition/ affect would appear */
+            transition-delay: 1s;
+            /* the effect would take place after a delay of 2 secs */
+
+
+            /* we can use short hand notation instead of using all these 4 properties */
+            transition: transform 4s ease 1s, background-color 4s linear 1s;
+            /* here i have given transition to 2 properties one is transform and the other is background-color  */
+
+
+        }
+
+        .translate:hover{
+            transform: translateX(65px) translateY(100px);
+            background-color: burlywood;
+            /* transition would take place on these 2 properties */
+
+            /* whenever we hover over welcome the transition takes place and when we remove cursor from the spot it comes back to it's own place */
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="greetbox translate">Welcome!</div>
+    </div>
+</body>
+
+</html>

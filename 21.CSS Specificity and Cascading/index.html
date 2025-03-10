@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Specificity</title>
+
+    <!-- Specificity order: 
+    ***...inline(style) attribute value=1000> id selector value=100> class or attribute selector value=10> Element selector value=1> universal selector value=0....***
+    within class which selector has the latest properties assigned will be considered
+
+    value is used for calculating overall specificity of all elements
+
+    ***but if we write !important after that property value then it will have highest specificity =10,000
+    -->
+    
+    <style>
+        /* speicificity=1 since elment selector */
+        h1{ 
+            background-color:burlywood;
+            color: red;
+        }
+
+         /* speicificity=10 since class selector */
+        .red{
+            background-color: red;
+            color: purple !important;
+        }
+
+         /* speicificity=11 since firstly element selector and class selector 1+10=11  */
+        h1.blue{
+            background-color: blue;
+            color: darkturquoise;   /*here the values of this will reflect because of its specificity=1+10=11 */
+        }
+        
+         /* speicificity=10 since class selector */
+        .green{
+            background-color: green;
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <!-- specifity of style= ie inline selector is 1,000 -->
+    <h1 style="color: blue; background-color: thistle;" class="red blue green">Am here to demonstrate the CSS Specificity</h1>
+    <!-- the background color is thistle itself but the color is not blue it's purple because of the !important -->
+
+    <!-- since the specificity was high of .blue class hence values of that class will be reflected -->
+</body>
+</html>
+
+
+<!-- quick example for calculating specificity
+    a.haryyclass.rohan-class[href]:hover{
+    color: thistle;
+    }
+
+    will have specificity 1 -due to  a
+    will have specificity 10 due to harryclass
+    will have specificity 10 due to rohan class
+    will have specificity 10 due to attribute selector
+    will have specificity 10 due to pseudo class selector
+    in total 1+10+10+10+10=41 specificity
+-->

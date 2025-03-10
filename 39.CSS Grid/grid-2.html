@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Using Grid Areas </title>
+    <style>
+        .container{
+            border: 2px solid black;
+            display: grid;
+            grid-template-areas:"nav nav nav"
+                                "side article article"
+                                "footer footer footer";
+        /* this will create a 3x3 grid with first row as nav, second row with side article and article, third with all footers......note:---> nav,side,article,footer are grid area names*/
+        }
+
+        
+        .item{
+            border: 2px solid red; 
+            height: 55px;
+            /* width: 55px; */
+            /* to make visible the changes, we remove this width */
+        }
+
+        .item-1{
+            grid-area: nav;
+            /* occupies whole first row/ occupies where ever the nav is spread */
+        }
+        .item-2{
+            grid-area: side;
+        }
+        .item-3{
+            grid-area: article;
+        }
+        .item-4{
+            grid-area: footer;
+        }
+        .item-5{
+            grid-area: nav;
+        }
+
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="item item-1">1</div>
+            <div class="item item-2">2</div>
+            <div class="item item-3">3</div>
+            <div class="item item-4">4</div>
+            <div class="item item-5">5</div>
+        </div>
+    </main>
+</body>
+</html>

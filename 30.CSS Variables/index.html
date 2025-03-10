@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables</title>
+    <style>
+        :root{
+            /* the variables within this block are global variables and can hold any sort of values and starts with -- */
+            --color:rgba(255, 1, 1, 0.299);
+            --secondarycolor:rgb(243, 7, 46);
+            --margin:25px;
+            --defpad:10px;
+            --defborder:4px double black;
+
+            --defop:0.7;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            background-color: var(--color);
+            margin: var(--margin);
+        }
+
+        ul{
+            display: flex;
+        }
+        ul li{
+            list-style: none;
+            margin: var(--margin);
+            --secondarycolor:aqua; /*this is a local variable*/
+            background-color: var(--secondarycolor,thistle);
+            /* the above thistle color is alternative, if the variable is not available globally or locally then it will take this alternate value! */
+            padding: var(--defpad);
+            opacity: var(--defop);
+            border:var(--defborder);
+        }
+
+        p{
+            background-color: var(--secondarycolor);
+            margin: var(--margin);
+            border: var(--defborder);
+            padding: var(--defpad);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+    <div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo animi facilis recusandae consectetur sapiente voluptate possimus accusamus officia obcaecati quae ipsum incidunt consequatur ad dicta perspiciatis explicabo, corrupti itaque illo quia aspernatur quas! Velit tempora ullam facere perferendis enim nihil eligendi laudantium, animi amet voluptates odit illo neque eum, alias sapiente aspernatur culpa quod deleniti aliquam laboriosam impedit dignissimos consequatur omnis similique. Harum quod necessitatibus libero fuga, odit saepe unde ratione aliquam nemo facilis possimus pariatur totam dolor accusantium modi asperiores? Dolore esse hic reiciendis est sed dolores, corporis veritatis pariatur quae. Commodi quo nam fugit fuga, quos praesentium.
+        </p>
+    </div>
+</body>
+</html>
+
+
+<!-- with the help of variables we can change the properites of entire css-->

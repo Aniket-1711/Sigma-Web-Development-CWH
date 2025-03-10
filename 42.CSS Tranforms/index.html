@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Tranforms</title>
+    <style>
+        .container{
+            border: 2px solid purple;
+            width: 100vw;
+            height: 80vw;
+        }
+
+        .box{
+            background-color: beige;
+            border: 2px solid black;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /*we have transform property to change the alignment of the content */
+            transform: rotate(40deg);
+            /* we can also use 0.5turn instead of 40deg, o.5turn will align the box 180 (1/2 of 360), by default the rotate takes place in z direction */
+            
+            /* we can also rotate the content about specific axis*/
+            transform: rotateX(79deg);
+            /* if we make it 90deg then it will be like a line which will not be visible */
+
+            /* we also have properties like scale and skew */
+            transform: scale(1.6);
+            /* it will increase the size of the content to 1.6 times, we can use any particular direction or 3d depending on the requirement*/
+
+            /* when we use skew, it stretches the opposite 2 corners, it can be done only in x or y direction but not in z, by default it is in x direction*/
+            transform: skew(15deg);
+
+
+            transform: translate(100%);
+            /* we can use translate to move the content, 100% in the sense it will give a space of 100% width of the content(here box) we can also specify in px, by default it will be along x direction*/
+
+
+            /* when we want to give more than one tranform property to a content we give it in a single line separted by space */
+            transform: translateY(100%) skew(45deg) translateX(45%);
+
+            /* -45% or -100% will take the content out of the container */
+
+            transform-origin: 30% 40%;
+            /* new orgin of the content is according to above coordinates  */
+            transform: rotate(55deg);
+            /* this will rotate along z direction based on the new coordinates */
+            /*  */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">Box</div>
+    </div>
+</body>
+</html>

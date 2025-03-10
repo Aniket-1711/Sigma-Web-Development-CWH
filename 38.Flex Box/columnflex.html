@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Column Flex CSS</title>
+    <style>
+        .container {
+            border: 2px solid red;
+            height: 600px;
+            width: 800px;
+            display: flex;
+            /* flex-direction: column; */
+
+            justify-content: center;
+            align-content: center;
+            /* use align-content when multiple columns are there for single column use align-items */
+
+            flex-flow: column wrap;
+            gap: 20px;
+         
+
+        }
+
+        .item {
+            background-color: aquamarine;
+            border: 2px solid black;
+            height: 50px;
+            width: 50px;
+            /* margin: 20px; */
+
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </main>
+</body>
+
+</html>

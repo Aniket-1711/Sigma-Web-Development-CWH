@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flex Box</title>
+    <style>
+
+        .container{
+            border: 2px solid red;
+            height: 600px;
+            display: flex;
+            /* this is similar to flex-direction:row  we also have column, column-reverse, row-reverse etc..*/
+            /* all the items align themselves in a row from left to right */
+
+          /* here x-axis is the main axis and y-axis is the cross axis as flex-directio is row and if it's column then it's vice versa */
+
+          /* in this scenario if we want to align the text to the center we need to keep main axis in view */
+            justify-content: center;
+            /* sets the content to the center on the main axis(here it's x-axis)
+            
+            we can also set value as flex-start, flex-end, space-around, space-between, space evenly etc.. same for align items also
+            */
+
+            /* there is no justify-items in flex box */
+
+            align-items: center; /*this is of no use as we have used align-content: center;
+            /* sets the content to the center on the cross axis(here y axis) and is used when the content of only 1 line */
+
+            align-content: center;
+               /* if there is more content spread in rows to be center then we use align-content :center*/
+
+            flex-wrap: wrap; /*this is done in flex-flow*/
+
+            /* we can set both the direction and of flow and wrap values like: */
+            flex-flow: row wrap;
+            /* gave the direction and wrap property at a time */
+
+            gap:20px 100px;
+            /* gives gap only between the items and the first value if row gap and 2nd value is column gap*/ 
+        }
+
+        .item{
+            height: 100px;
+            width: 100px;
+            border: 2px solid black;
+            margin:10px;
+            background-color: aquamarine;
+
+            /* order property */
+            /* default order of any item/element is 0
+            elements with low order comes first and high order comes at last */
+
+        }
+
+        .order-1{
+            order: 1;
+        }
+
+        .order-3{
+            order: 3;
+        }
+    </style>
+</head>
+<body>
+    
+    <main>
+        <div class="container">
+            <div class="item order-1">1</div>
+            <div class="item order-1">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item order-3">33</div> 
+            <!-- this above and below element will come at last as their order 3 which is highest
+             elements/items with order 0 comes first,then with 1 and then 2 if present and finally 3-->
+            <div class="item order-3">45</div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+
+        </div>
+    </main>
+
+</body>
+</html>

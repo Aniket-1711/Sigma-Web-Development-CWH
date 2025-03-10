@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Object Fit and Object Cover</title>
+    <style>
+        .container {
+            /* this was the initial width and height of the image*/
+            /* width: 500px; */
+            /* height: 300px; */
+
+            width: 300px;
+            height: 200px;
+            /* we set above width and height so show that after we apply object fit property image exactly occupies the same width and height that was given to image with retaining it's aspect ratio */
+
+
+            background-color: aquamarine;
+            border: 2px solid black;
+
+
+        }
+
+        img {
+            width: 300px;
+            height: 200px;
+            background-color: bisque;
+            border: 2px solid red;
+            object-fit: cover;
+            /* here the cover value sets the image in the height and width given to the image and not the container such that it's aspect ratio is maintained, this means that some portion of the image will be cut to cover the height and width given to the image to fit in perfect aspect ratio*/
+
+
+            object-fit: contain;
+            /* when we use this property, the complete image will be displayed and there maybe empty space left, after the complete image is displayed in the container, as either as width or height*/
+
+
+            object-position: top right;
+            /* object-position aligns the image within its container.
+            If the image is larger than the container and object-fit is set to a value like cover or none, then:
+            top right ensures that the top-right portion of the image is displayed in the container.
+            The rest of the image (outside the container) will be cropped.
+            It does not move the image's position relative to the container; it only adjusts what part of the image is visible. */
+
+            /* note--->
+            If the image is cropped, the visible part will be the top-right portion of the original image.
+            If the image is smaller or fits perfectly, the alignment won't cause cropping—it will just align the image's top-right corner to the container's top-right corner. */
+
+            object-position: 10px 30px;
+            /* this helps in setting the image as per our wish instead of px we can also use % also, basically positioning the image*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202412/indias-virat-kohli-263318109-16x9_1.jpg?VersionId=RKmXY3DI4ThaS_3mAwM9LwRPqwqoGJaG&size=690:388"
+            alt="Virat Kohli">
+    </div>
+</body>
+
+</html>

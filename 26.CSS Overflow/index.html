@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS OverFlow Property</title>
+    <style>
+        .box{
+           margin: 200px auto;
+            background-color: thistle;
+            border: 2px solid black;
+            width: 10vw;
+            height: 20vh;
+
+            /* overflow:scroll auto;  */
+            /* the above says that if there is over flow or not in the x direction we get a horizontal scroll bar  for sure but in y direction scroll bar is visible only if there is overflow in y direction*/
+
+            overflow: auto auto;
+            /* similar to overflow-x: auto;
+            overflow-y:auto  short hand notation*/
+
+            /* overflow: hidden; */
+            /* this will hide the content that's overflowing */
+
+            white-space: nowrap;
+            /* this line allows the content to be in the same line with horizontal scroll bar */
+
+            text-overflow:ellipsis;
+            /* adds dots at the end  as the text is cut
+            if we use clip it will cut the remaining part and only show the part that fits in */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, ex. Mollitia cum perferendis praesentium officiis. Quis a optio facilis? Hic, maxime. Nostrum ea nihil, temporibus consectetur repellendus quis dicta eos esse necessitatibus est incidunt dolorem inventore culpa quisquam odit repellat natus numquam adipisci, consequuntur, vero molestiae ab? Aspernatur corporis omnis distinctio hic quas, illum sit iste minima nostrum, incidunt a, quibusdam ea ab molestias ipsam placeat cumque.
+    </div>
+</body>
+</html>

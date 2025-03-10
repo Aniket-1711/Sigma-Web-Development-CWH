@@ -1,0 +1,7 @@
+/* This is a CSS comment */
+/* Here we have added a 2 properties with 2 values to 2 elements at a time using , */
+p,h3{
+    color: rebeccapurple;
+    background-color: thistle;
+}
+
