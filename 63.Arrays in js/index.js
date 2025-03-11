@@ -1,5 +1,8 @@
 //few more array methods ---> splice with remove and replace
 
+
+// array here is a heterogenous mixture of elements
+// type of an array is object
 let numbers=[1,2,3,4,5,6]
 console.log(numbers.splice(1,3))
 // the spice method removes the values of the indices speicified in it, it also return the elements in the form of array that were removed and it does effec the original array

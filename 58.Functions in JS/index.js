@@ -12,3 +12,12 @@ const func1=x=>{
 }
 
 func1(45)
+
+console.log(1.999999999999999999999999999999999999999999999999)
+// size matters try decreasing the 9's we will get 1.999999999
+
+// follow pedmas in js
+// p paranthesis
+// e exponential
+// d division
+// m mutiplication followed by additiona and subtration

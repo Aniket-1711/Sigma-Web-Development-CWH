@@ -1,0 +1,13 @@
+js has a engine 
+in console we can perform repl read evaluate print loop
+script tag is used to embed js code or create a separate file to do so
+
+variables in js are case sensitive
+mostly we use let keyword to declare variables, var is also used but not frequently and const is used to declare fixed values
+there are no int, float, double everthing comes under number
+
+Database:
+    mongo db is a schema less data base which makes user to easily deal with the data 
+
+nan  is nothing but not a number 0/0 is is nan
+the type of nan would be number itself but it is not a number
