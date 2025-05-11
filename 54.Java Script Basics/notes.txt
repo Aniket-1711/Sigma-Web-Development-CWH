@@ -11,3 +11,7 @@ Database:
 
 nan  is nothing but not a number 0/0 is is nan
 the type of nan would be number itself but it is not a number
+
+
+npm is node package manager
+helps in installing packages in node

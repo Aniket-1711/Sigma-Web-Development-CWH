@@ -1,5 +1,5 @@
  // string characters in js can be accessed using index
-// js is a forgiving language which means that it throws minimal erros
+// js is a forgiving language which means that it throws minimal errors
 // when u try to access the index of the string which is not present , it returns undefined rather than throwing an error and index starts from 0
 // we can find the length of the string using string.length 
 let username="Aniket"

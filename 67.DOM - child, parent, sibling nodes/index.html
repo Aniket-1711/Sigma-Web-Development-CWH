@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            background-color: thistle;
+            height:10vh;
+            width: 5vw;
+            margin: 5px;
+            border: 2px solid red;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- in this we r gonna learn about how to select elements, and add children to the DOM -->
+     <div class="container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
+     </div>
+
+     <script src="script.js"></script>
+
+</body>
+</html>
+
+<!-- to know how many children nodes or children that my any component has for example i want to know how many children are there inside the container:
+ then i will go to the console after clicking on inspect
+ now i type document.body.childNodes
+ here we get list of child nodes, one of them would be text, the text is nothing but the space between the opening of any tag and the opening of child tag within that parent tag
+ 
+ for example, the space between the 2 divs on the lines 20 and 21 is text (we can say induntation)
+ 
+ 
+ document.body.childNodes
+ from there we can access its different childs
+ document.body.childNOdes[0] and so on..
+ and if we want to access the childs further
+ document.body.childNodes[0].childNodes...-->
+    
+ <!-- in the browser, we can store document.body.childNodes[0] in a variable
+  then apply other functions or properties like
+  supoose 
+  let a=document.body.childNodes[1]
+  a.firstChild
+  a.lastChild
+  usually these return the text as the output, so to get the exact element we use firstElementChild
+  this will directly give box 1 as the output, incase childNodes[1] is a container 
+  
+  
+  for more clarity open the browser, run in the console
+  
+  
+  we can also change the properties like
+  a.lastChild.style.backgroundColor="purple"
+  
+  to accesss the parent of any element use for example:
+  document.body.childNodes[2].firstChild.parentElement 
+  
+  to get only the HTML element childs of any element we use
+  document.body.childNodes[0].children
+  
+  run the above to see the difference-->
