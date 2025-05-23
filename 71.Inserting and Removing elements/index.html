@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blue{
+            color:blue
+        }
+    </style>
+</head>
+<body>
+    <div class="container blue vibgor">
+        <div class="box" style="display: flex;" data-createdby="Aniket" data-credits="Code with harry">Hey Am a box 1</div>
+
+        <!-- we can add custom attributes to add extra info
+         to add custom attributes we use the prefix data-
+         this prefix is followed by a key value pair, when u try to display using.dataset we get that key value pair after data-
+         createdby:aniket
+         credits:harry
+         output
+          -->
+
+
+        <div class="box" id="box2">Hey Am a box 2</div>
+
+    </div>
+    <script src="scirpt.js">
+    </script>
+    <script>
+        // creating a element dynamically with the help of js
+
+        let div=document.createElement("div"); 
+        div.innerHTML="I have been inserted <b> by Aniket </b>"
+        // the above line sets the content inside the element
+        div.setAttribute("class","inserted")
+        // this creates a class inserted in the div element created
+        document.querySelector(".container").prepend(div);
+        // appends the div element within the container but  at the end of the container and if i would have said prepend, then within the same container it would have replaced at first
+
+        // there are few other functions like append, prepend, before, after and replacewith
+
+        // now if i say after instead of append it will inserted after the container class and before will insert the newly created div before the container class
+
+        // replcae with will replace the node in this case the container class with this new div
+
+        //     document.querySelector(".container").replaceWith(div);
+        // uncomment the above line and run to see the output
+    </script>
+
+
+    <script>
+        // we have insertAdjacentText
+         // we have insertAdjacentElement
+        // we have insertAdjacentHTML
+
+        let cont=document.querySelector(".container").insertAdjacentHTML("beforeend","<b> i will be inserted inside the container just before the container ends</b>")
+        // similarly i can do this with text/element/html 
+
+        // the positions to insert are
+        //beforebegin- before the node
+        //beforeend - within element, but at end
+        //afterbegin - within element, at the beginning
+        //afterend - after the node
+    </script>
+
+    <script>
+        // removing the node
+        // document.querySelector("#box2").remove()
+        document.getElementById("box2").remove()
+        // here this will remove the element
+
+
+        // class list and class name
+        // when we want to get the classname of a particular node or the classlist we can use the following
+        console.log(document.querySelector(".container").classList)
+        // this return the list of classname and value check for the console output
+
+        console.log(document.querySelector(".container").className)
+        // this returns only the values ie the class names
+
+        // to add or remove a class we can use
+        document.querySelector(".container").classList.add("aniket")
+        // this will add the class aniket also to the container
+
+        // to remove a class
+        document.querySelector(".container").classList.remove("vibgor")
+        // now the vibgor class from container will be removed
+
+        // there is one more method along with add and remove 
+        // which is toggle, that is if the class exists it will remove and if not it will add, for now the text is in blue, as soon i say classlist.toggle("blue") this will remove that class and properties related to that class will be removed, this will return false if the class is removed true if not
+        console.log(document.querySelector(".container").classList.toggle("blue"))
+
+    </script>
+</body>
+</html>
