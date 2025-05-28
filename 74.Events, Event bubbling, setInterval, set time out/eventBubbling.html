@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            background-color: thistle;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .childContainer {
+            background-color: beige;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .child {
+            background-color: burlywood;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="childContainer">
+            <div class="child">
+                Hey, I am child
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // let's now add 3 same click events on the 3 classes and display a alert message and know about event bubbling
+
+        // here what happens is, when u click on container, only container was clicked alert is displayed, but when u click on childcontainer, both container and childcontainer alert messages are displayed, and when we click on child all 3 alerts are displayed, this is event bubbling, and js sets is on by default
+
+        // as child is inside childcontainer and childcontainer is inside container, each of the event is triggered when we click on the child 
+
+        document.querySelector(".child").addEventListener("click", (e) => {
+            // to stop further propogation of the event we can use
+            e.stopPropagation()
+            // this will only display the alert of child and no other alerts
+            // but check for the child container it will have its parent alert also 
+            alert("Child was clicked")
+        })
+
+        document.querySelector(".childContainer").addEventListener("click", (e) => {
+            alert("child container was clicked")
+        })
+
+        document.querySelector(".container").addEventListener("click", (e) => {
+            alert("container was clicked")
+        })
+
+
+        // there are 2 more concepts called set interval and set timeout
+
+        function getRandomCOlor() {
+            // there is a formula to get a random number between a and b both inclusive
+            // a+random*(b-a)
+            let val1 = Math.ceil(0 + Math.random() * 255)
+            // here i chose a=0 and b=255 becuase rgb colors ranges from 0 to 255
+            let val2 = Math.ceil(0 + Math.random() * 255)
+            let val3 = Math.ceil(0 + Math.random() * 255)
+
+            return `rgb(${val1}, ${val2}, ${val3})`
+        }
+
+        // setinterval is used when u want to repeat some task/event after every x seconds
+        // set timeout is to do a certain task only once after x seconds
+        let a=setInterval(() => {
+            document.querySelector(".child").style.background=getRandomCOlor()
+        }, 1000);
+
+        console.log(a)
+
+        // and turn this setinterval off we use 
+        // clearInterval(number)
+        // this number is the return type of the var a
+        // set interval returns a number and when we type clearInteval(number) that event stops functioning, in this case it's 2 (value of a)
+
+        let b=setTimeout(() => {
+            document.querySelector(".childContainer").style.background=getRandomCOlor()
+
+            // this will change the background of the child container after 3 secs only for once
+
+            
+        }, 3000);
+
+        console.log(b)
+        // and if we want to stop this function from executing, then before execution of this function in the console we can use clearTimeout(number) clearTimeOut(b) b=number
+
+    </script>
+</body>
+
+</html>

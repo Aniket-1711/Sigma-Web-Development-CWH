@@ -1,0 +1,10 @@
+Use ! for important or urgent notes
+
+Use * for explanations or extra info
+
+Use SYNTAX for syntax-related notes or tips
+
+Use ? for questions or doubts
+
+Use TODO for tasks or things to do
+
