@@ -7,7 +7,7 @@ function sum(a,b){
 console.log(sum(2,3))
 //although writing semi colon is not necessary but it is better to use so!
 
-const func1=x=>{
+const func1= x=>{
     console.log("This is kind of anonymous function "+x);
 }
 

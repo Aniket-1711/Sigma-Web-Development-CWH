@@ -55,10 +55,17 @@ getData(1, () => {
         console.log("Getting data 3")
         getData(3, () => {
             console.log("Getting data 4")
-            getData(4)
+            getData(4,()=>{
+                console.log("Getting Data 5")
+                getData(5)
+            })
         })
     })
 })
+//* here we r calling the function getData, in the function call the first parameter is our data value and the other is a funtion ,here it is anonymous lambda function, 
+
+//!here we r using the callback becuase we want the data i+1 only after we get the data i.
+
 
 // ! As we can see, nesting keeps growing and code becomes unclear to read
 // ! This is the concept of Callback Hell
