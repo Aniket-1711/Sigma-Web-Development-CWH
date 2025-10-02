@@ -13,24 +13,24 @@ console.log(hello());
 
 //! await is used inside async function only
 
-function api(){
-    return new Promise((resolve, reject)=>{
-       setTimeout(()=>{
-        console.log("weather data")
-        resolve(200);
-       },2000) 
-    });
-}
+// function api(){
+//     return new Promise((resolve, reject)=>{
+//        setTimeout(()=>{
+//         console.log("weather data")
+//         resolve(200);
+//        },2000) 
+//     });
+// }
 
 // await api(); we can't use await on non async funtions
 
 //* so we write the following async funciton to make use of await
-async function getWeatherData() {
-    await api(); //1st call
-    await api();
-}
+// async function getWeatherData() {
+//     await api(); //1st call
+//     await api();
+// }
 
-getWeatherData();
+// getWeatherData();
 
 
 //* now we will use async and await to getdata function
@@ -79,3 +79,6 @@ getAllData();
 //* one disadvantage of using IIFE is that this piece of code is not further reusable we need to paste or type the same block again
 //* it just helps in getting rid of explicit function call 
 //* we generally use these in API calls
+
+
+//* the output is little clumsy because of asynchronous nature of js
