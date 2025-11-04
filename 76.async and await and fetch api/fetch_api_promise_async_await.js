@@ -1,7 +1,8 @@
 async function getData(){
-    // fetch('https://jsonplaceholder.typicode.com/todos/1')
-    //   .then(response => response.json())
-    //   .then(json => console.log(json))
+    
+    //SYNTAX fetch('https://jsonplaceholder.typicode.com/todos/1')
+    // SYNTAX  .then(response => response.json())
+    //SYNTAX   .then(json => console.log(json))
 
     //*  The above is the link - type json placeholder in chorme to get the url for this
     //! The fetch api returns a promise , to handle that we use .then, and this further returns a promise we need to type cast it into json type so we further apply .then to this (.then is used when the promise is fulfilled)
