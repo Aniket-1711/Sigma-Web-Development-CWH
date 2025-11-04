@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Permutation Backtracking Visualizer</title>
+  <style>
+    :root { --bg:#0b1020; --panel:#121833; --ink:#e6ecff; --muted:#9fb0ff; --accent:#7aa2ff; --good:#5bd6a2; --warn:#ffbf69; --bad:#ff6b6b; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; background: var(--bg); color: var(--ink); }
+    header { padding: 16px 20px; border-bottom: 1px solid #1b2350; background: #0c1430; position: sticky; top:0; z-index: 5; }
+    header h1 { margin: 0; font-size: 18px; letter-spacing: .4px; color: var(--ink); }
+    .wrap { display: grid; grid-template-columns: 360px 1fr 380px; gap: 14px; padding: 14px; }
+    .card { background: var(--panel); border: 1px solid #1b2350; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.25); overflow: hidden; }
+    .card h2 { margin: 0; padding: 12px 14px; font-size: 14px; color: var(--muted); border-bottom: 1px solid #1b2350; background: #0f1738; }
+    .card .body { padding: 12px 14px; }
+    .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    input[type=text] { flex: 1; min-width: 200px; background: #0b1330; color: var(--ink); border: 1px solid #23306d; border-radius: 10px; padding: 10px 12px; outline: none; }
+    input[type=text]::placeholder { color: #6e7ed6; }
+    button { background: #0f1738; color: var(--ink); border: 1px solid #2a3a82; padding: 9px 12px; border-radius: 10px; cursor: pointer; font-weight: 600; }
+    button:hover { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(122,162,255,.15); }
+    button.primary { background: linear-gradient(180deg, #3347a8, #2a3a82); border-color: #3c53c7; }
+    button.ghost { background: transparent; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; border: 1px solid #24327a; color: var(--muted); font-size: 12px; }
+    .legend { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chip { height: 10px; width: 10px; border-radius: 999px; display: inline-block; }
+    .c-enter { background: #8aa0ff; }
+    .c-choose { background: #ffcf66; }
+    .c-leaf { background: #5bd6a2; }
+    .c-back { background: #ff7b8a; }
+    .c-exit { background: #9aa3c6; }
+
+    /* Tree canvas */
+    #stage { position: relative; height: 640px; background: radial-gradient(1200px 400px at 50% -40%, rgba(122,162,255,.12), transparent 60%); border-top-left-radius: 14px; border-top-right-radius: 14px;}
+    svg { width: 100%; height: 100%; }
+    .node { transition: transform .25s ease, filter .25s ease; }
+    .node rect { fill: #0c1430; stroke: #2a3a82; stroke-width: 1.2; rx: 10; }
+    .node text { font-size: 12px; fill: var(--ink); }
+    .node .idx { fill: #9fb0ff; font-weight: 700; }
+    .edge { stroke: #2a3a82; stroke-width: 1.2; marker-end: url(#arrow); opacity: .8; }
+    .edge.active { stroke: var(--accent); opacity: 1; stroke-width: 1.8; }
+    .node.active rect { stroke: var(--accent); filter: drop-shadow(0 0 8px rgba(122,162,255,.35)); }
+    .node.leaf rect { stroke: var(--good); }
+
+    /* Right panel */
+    .monolog { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 12px; background: #0b1330; padding: 10px; border-radius: 10px; border: 1px solid #1f2b60; max-height: 220px; overflow: auto; }
+    .state { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .pill { padding: 6px 10px; border-radius: 999px; border: 1px solid #2a3a82; background: #0b1330; }
+    .log-enter { color: #8aa0ff; }
+    .log-choose { color: #ffcf66; }
+    .log-leaf { color: #5bd6a2; }
+    .log-back { color: #ff7b8a; }
+    .log-exit { color: #9aa3c6; }
+    .footer { padding: 10px 14px; border-top: 1px solid #1b2350; color: #93a5ff; font-size: 12px; background: #0f1738; }
+    .slider { width: 140px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Permutation Backtracking Visualizer — trace swaps, recursion, and backtracking</h1>
+  </header>
+  <div class="wrap">
+
+    <!-- Controls -->
+    <div class="card">
+      <h2>Controls</h2>
+      <div class="body">
+        <div class="row" style="margin-bottom:10px;">
+          <input id="arrInput" type="text" placeholder="Enter numbers, e.g. 1,2,3" value="1,2,3" />
+          <button class="primary" id="buildBtn">Build Tree</button>
+        </div>
+        <div class="row" style="gap:6px;margin-bottom:6px;">
+          <button id="playBtn">▶ Play</button>
+          <button id="pauseBtn">⏸ Pause</button>
+          <button id="stepBtn">⏭ Step</button>
+          <button id="backBtn">⏮ Back</button>
+          <button id="resetBtn" class="ghost">↺ Reset</button>
+        </div>
+        <div class="row" style="margin-top:6px;">
+          <span class="badge">Speed <input id="speed" class="slider" type="range" min="100" max="1500" step="50" value="600"></span>
+          <span class="badge"><span class="chip c-enter"></span> enter</span>
+          <span class="badge"><span class="chip c-choose"></span> choose/swap</span>
+          <span class="badge"><span class="chip c-leaf"></span> leaf</span>
+          <span class="badge"><span class="chip c-back"></span> backtrack</span>
+          <span class="badge"><span class="chip c-exit"></span> exit</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage -->
+    <div class="card">
+      <h2>Decision Tree</h2>
+      <div id="stage">
+        <svg id="svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#2a3a82"></path>
+            </marker>
+          </defs>
+          <g id="edges"></g>
+          <g id="nodes"></g>
+        </svg>
+      </div>
+      <div class="footer" id="hint">Build the tree to start.</div>
+    </div>
+
+    <!-- Details -->
+    <div class="card">
+      <h2>Live Trace</h2>
+      <div class="body">
+        <div class="state" style="margin-bottom:10px;">
+          <div class="pill" id="arrView">Array: []</div>
+          <div class="pill" id="idxView">index = -</div>
+          <div class="pill" id="stepView">step 0 / 0</div>
+        </div>
+        <div class="monolog" id="log"></div>
+        <h2 style="margin-top:12px;">Collected Permutations</h2>
+        <div class="monolog" id="outs"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const svg = document.getElementById('svg');
+    const gNodes = document.getElementById('nodes');
+    const gEdges = document.getElementById('edges');
+
+    const arrView = document.getElementById('arrView');
+    const idxView = document.getElementById('idxView');
+    const stepView = document.getElementById('stepView');
+    const logEl = document.getElementById('log');
+    const outsEl = document.getElementById('outs');
+    const hint = document.getElementById('hint');
+
+    const state = {
+      nodes: [], edges: [], steps: [],
+      layout: {},
+      i: 0,
+      playing: false,
+      timer: null,
+      speed: 600,
+      outputs: []
+    };
+
+    function parseArrayInput(str){
+      if(!str.trim()) return [];
+      return str.split(',').map(s=>s.trim()).filter(s=>s.length).map(Number);
+    }
+
+    function clone(a){ return a.slice(); }
+
+    function buildTrace(nums){
+      const nodes = []; const edges = []; const steps = []; const outputs = [];
+      let id = 0;
+      function rec(arr, index, parentId){
+        const nodeId = id++;
+        nodes.push({ id: nodeId, index, arr: clone(arr) });
+        if(parentId!=null) edges.push({ from: parentId, to: nodeId });
+        steps.push({ type:'enter', nodeId, index, arr: clone(arr) });
+
+        if(index === arr.length){
+          outputs.push(clone(arr));
+          steps.push({ type:'leaf', nodeId, index, arr: clone(arr) });
+          steps.push({ type:'exit', nodeId, index, arr: clone(arr) });
+          return;
+        }
+        for(let i=index; i<arr.length; i++){
+          // choose/swap
+          [arr[index], arr[i]] = [arr[i], arr[index]];
+          steps.push({ type:'choose', nodeId, index, i, arr: clone(arr) });
+          // descend
+          rec(arr, index+1, nodeId);
+          // backtrack
+          [arr[index], arr[i]] = [arr[i], arr[index]];
+          steps.push({ type:'backtrack', nodeId, index, i, arr: clone(arr) });
+        }
+        steps.push({ type:'exit', nodeId, index, arr: clone(arr) });
+      }
+      rec(nums.slice(), 0, null);
+      return { nodes, edges, steps, outputs };
+    }
+
+    // --- Layout ---
+    function layoutTree(nodes, edges){
+      const children = new Map();
+      nodes.forEach(n => children.set(n.id, []));
+      edges.forEach(e => children.get(e.from).push(e.to));
+
+      const width = new Map();
+      function calcWidth(u){
+        const ch = children.get(u);
+        if(!ch || ch.length === 0){ width.set(u, 1); return 1; }
+        let w = 0; ch.forEach(v => w += calcWidth(v)); width.set(u, w); return w;
+      }
+      calcWidth(0);
+
+      const pos = new Map();
+      const X_STEP = 80, Y_STEP = 110;
+      function place(u, depth, left){
+        const ch = children.get(u);
+        const w = width.get(u);
+        let x = left + (w-1)*X_STEP/2;
+        pos.set(u, { x, y: depth*Y_STEP });
+        if(ch && ch.length){
+          let cur = left;
+          ch.forEach(v => { const wv = width.get(v); place(v, depth+1, cur); cur += wv*X_STEP; });
+        }
+      }
+      place(0, 0, 40);
+      return Object.fromEntries([...pos.entries()].map(([k,v])=>[k+"",v]));
+    }
+
+    function clearSVG(){ gNodes.innerHTML = ''; gEdges.innerHTML=''; }
+
+    function renderTree(){
+      clearSVG();
+      const {nodes, edges, layout} = state;
+      // edges first
+      edges.forEach((e,idx)=>{
+        const a = layout[e.from+""]; const b = layout[e.to+""];
+        const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+        const x1=a.x+55, y1=a.y+28, x2=b.x+55, y2=b.y; // start at bottom center, end at top center of child
+        const midY=(y1+y2)/2;
+        const d=`M ${x1} ${y1} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2}`;
+        path.setAttribute('d', d);
+        path.setAttribute('class','edge');
+        path.setAttribute('data-from', e.from);
+        path.setAttribute('data-to', e.to);
+        gEdges.appendChild(path);
+      });
+      // nodes
+      nodes.forEach(n=>{
+        const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+        g.setAttribute('class','node');
+        g.setAttribute('data-id', n.id);
+        const {x,y} = layout[n.id+""];
+        g.setAttribute('transform', `translate(${x},${y})`);
+        const rect = document.createElementNS('http://www.w3.org/2000/svg','rect'); rect.setAttribute('width','110'); rect.setAttribute('height','48');
+        const t1 = document.createElementNS('http://www.w3.org/2000/svg','text'); t1.setAttribute('x','8'); t1.setAttribute('y','18'); t1.setAttribute('class','idx'); t1.textContent = `index=${n.index}`;
+        const t2 = document.createElementNS('http://www.w3.org/2000/svg','text'); t2.setAttribute('x','8'); t2.setAttribute('y','36'); t2.textContent = `[${n.arr.join(', ')}]`;
+        g.appendChild(rect); g.appendChild(t1); g.appendChild(t2); gNodes.appendChild(g);
+      });
+    }
+
+    function highlight(step){
+      // deactivate
+      document.querySelectorAll('.node').forEach(n=>n.classList.remove('active','leaf'));
+      document.querySelectorAll('.edge').forEach(e=>e.classList.remove('active'));
+
+      const {type, nodeId} = step;
+      const node = document.querySelector(`.node[data-id="${nodeId}"]`);
+      if(node){ node.classList.add('active'); if(type==='leaf') node.classList.add('leaf'); }
+
+      if(type==='choose'){
+        // highlight edge to child if it exists yet (the next node id is last nodes length?)
+        // Edges are static; active edge is from nodeId to its next child in order based on steps processed so far.
+        // We approximate by picking the edge whose from==nodeId and whose 'to' has index one greater depth.
+        const edges = Array.from(document.querySelectorAll(`.edge[data-from="${nodeId}"]`));
+        // activate the next not-yet-activated edge (best-effort visual cue)
+        const e = edges.shift(); if(e) e.classList.add('active');
+      }
+    }
+
+    function appendLog(step){
+      const sIdx = state.i+1; const total = state.steps.length;
+      stepView.textContent = `step ${sIdx} / ${total}`;
+      arrView.textContent = `Array: [${(step.arr||state.nodes[step.nodeId]?.arr||[]).join(', ')}]`;
+      idxView.textContent = `index = ${step.index!=null? step.index : state.nodes[step.nodeId]?.index}`;
+      const ln = document.createElement('div');
+      const colorClass = {
+        enter:'log-enter', choose:'log-choose', leaf:'log-leaf', backtrack:'log-back', exit:'log-exit'
+      }[step.type] || '';
+      ln.className = colorClass;
+      const extra = step.type==='choose' ? ` (swap ${step.index}, ${step.i})` : '';
+      ln.textContent = `${sIdx}. ${step.type}${extra} -> [${(step.arr||[]).join(', ')}]`;
+      logEl.appendChild(ln);
+      logEl.scrollTop = logEl.scrollHeight;
+      if(step.type==='leaf'){
+        state.outputs.push(step.arr.slice());
+        outsEl.textContent = state.outputs.map(a=>`[${a.join(', ')}]`).join('\n');
+      }
+    }
+
+    function stepForward(){
+      if(state.i >= state.steps.length) return;
+      const st = state.steps[state.i];
+      highlight(st);
+      appendLog(st);
+      state.i++;
+      if(state.i >= state.steps.length){ pause(); hint.textContent = 'Done. You can Back/Reset or change input and Build again.'; }
+    }
+
+    function stepBack(){
+      if(state.i <= 0) return;
+      state.i--; // move to previous already-applied step
+      // recompute UI from scratch up to i-1
+      logEl.innerHTML=''; outsEl.textContent='';
+      document.querySelectorAll('.node').forEach(n=>n.classList.remove('active','leaf'));
+      document.querySelectorAll('.edge').forEach(e=>e.classList.remove('active'));
+      state.outputs = [];
+      for(let k=0;k<state.i;k++) appendLog(state.steps[k]);
+      if(state.i>0) highlight(state.steps[state.i-1]);
+      stepView.textContent = `step ${state.i} / ${state.steps.length}`;
+    }
+
+    function play(){ if(state.playing) return; state.playing=true; hint.textContent = 'Playing…'; loop(); }
+    function pause(){ state.playing=false; if(state.timer){ clearTimeout(state.timer); state.timer=null; } hint.textContent = 'Paused.'; }
+    function loop(){ if(!state.playing) return; stepForward(); state.timer = setTimeout(loop, Number(document.getElementById('speed').value)); }
+
+    function reset(){ pause(); state.i=0; logEl.innerHTML=''; outsEl.textContent=''; state.outputs=[]; stepView.textContent='step 0 / '+state.steps.length; idxView.textContent='index = -'; arrView.textContent='Array: []'; hint.textContent='Ready. Hit ▶ Play or ⏭ Step.'; document.querySelectorAll('.node').forEach(n=>n.classList.remove('active','leaf')); document.querySelectorAll('.edge').forEach(e=>e.classList.remove('active')); }
+
+    function build(){
+      pause();
+      const nums = parseArrayInput(document.getElementById('arrInput').value);
+      const {nodes, edges, steps, outputs} = buildTrace(nums);
+      state.nodes = nodes; state.edges = edges; state.steps = steps; state.outputs=[]; state.i=0; hint.textContent='Tree built. ▶ Play or ⏭ Step to animate.';
+      state.layout = layoutTree(nodes, edges);
+      renderTree();
+      reset();
+    }
+
+    document.getElementById('buildBtn').addEventListener('click', build);
+    document.getElementById('playBtn').addEventListener('click', play);
+    document.getElementById('pauseBtn').addEventListener('click', pause);
+    document.getElementById('stepBtn').addEventListener('click', stepForward);
+    document.getElementById('backBtn').addEventListener('click', stepBack);
+    document.getElementById('resetBtn').addEventListener('click', reset);
+    document.getElementById('speed').addEventListener('input', (e)=> state.speed = Number(e.target.value));
+
+    // bootstrap
+    build();
+  </script>
+</body>
+</html>
