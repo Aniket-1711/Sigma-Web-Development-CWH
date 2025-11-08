@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let a=prompt("Enter your name")
+        // document.write("Welcome "+ a)
+        // //This will ask me to enter my name and once i enter, it will display the name
+        // //But every time i reload i will have to re-enter my name
+
+        // //* To store our name locally, so that when it reloads also it shows our name rather than asking again, we use localstorage
+        // //we store them as key value pairs
+        // localStorage.setItem("name", a)
+
+        if(localStorage.getItem("name")){
+            a=localStorage.getItem("name")
+            document.write("Welcome ", a)
+        }
+
+        else{
+            let a=prompt("Enter your name")
+             document.write("Welcome ", a)
+            localStorage.setItem("name", a)
+            //here we r setting name as key and a as value, if this is being done for the first time, otherwise we can retrieve basically once we enter the name from then on only if will execute no matter how many times we reload the page
+        }
+
+
+        //to store a object in the local storage i will use the following
+        let obj={
+            "ani":1,
+            "aka":2
+        }
+
+        //now i will typecaste this into a string and then set it
+        localStorage.setItem("boys", JSON.stringify(obj))
+        //this JSON.stringigy(obj) converts any js object into a string and returns that string, we r setting boys as key and the returned string as value
+
+        //we can only store key value pairs both as strings in local storage, that's the reason we use stringify function
+
+        //now if i directly use localStorage.getItem("boys"), i will get the names as string 
+        //if i want them as objects i will have to parse them
+
+        console.log(JSON.parse(localStorage.getItem("boys")))
+
+    </script>
+</body>
+</html>
