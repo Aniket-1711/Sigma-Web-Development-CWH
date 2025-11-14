@@ -1,0 +1,42 @@
+.flex{
+    display: flex;
+}
+
+.border{
+    border: 2px solid red;
+    margin: 3px;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.items-center{
+    align-items: center;
+}
+
+.invert{
+    filter: invert(1);
+    /** this makes the color to change from white to black and black to white */
+}
+
+.bg-black{
+    background-color: black;
+    color: white;
+}
+
+.bg-gray{
+    background-color:rgb(31 31 31);
+}
+
+.rounded{
+    border-radius: 7px;
+}
+
+.m-1{
+    margin: 5px;
+}
+
+.p-1{
+    padding: 10px;
+}
