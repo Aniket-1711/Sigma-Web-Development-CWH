@@ -17,7 +17,8 @@
 
 .invert{
     filter: invert(1);
-    /** this makes the color to change from white to black and black to white */
+    /** this makes the color to change from white to black and black to white
+    if we give 0 it will convert from white to black, we already used this invert in css colors */
 }
 
 .bg-black{
