@@ -21,3 +21,5 @@ console.log(b)
 
 
 //syntax https://nodejs.org/en/learn/getting-started/introduction-to-nodejs (this link is to learn about node js, kind of official node js documentation)
+
+//! express installation command - npm install express --same
