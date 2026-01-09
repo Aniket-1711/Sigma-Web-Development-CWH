@@ -1,0 +1,16 @@
+{
+  "name": "npm_demo",
+  "version": "1.0.0",
+  "description": "this is to demonstrate the usage of npm how to use and create new files and folders using npm",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Aniket",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "slugify": "^1.6.6"
+  }
+}
