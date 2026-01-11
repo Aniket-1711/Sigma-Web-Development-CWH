@@ -1,6 +1,7 @@
 console.log("Hello World")
 
-//** here we have used the npm init to create a working package then give the details , after that we will see that the node_modules folder and package-lock.json and package.json is created , this was to setup the nodejs project
+//** here we have used the npm init to create a working package then give the details , after that we will see that the  package.json is created , this was to setup the nodejs project
+//*as soon as we install slugify or express we get this node_modules
 //** if we delete this node_modules then we can get them by typing the command - npm install , this will install the dependenceis from the package.json 
 
 
