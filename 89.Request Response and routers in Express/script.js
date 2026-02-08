@@ -31,11 +31,18 @@ app.put("/", (req,res)=>{
 //todo }).put("/", (req,res)=>{
 //todo     console.log("Hey it's a put request")
 //todo     res.send("Hello From Put")
-//todo }).listen(3000, ()=>{
-//todo     console.log("Server listening at port 3000")
-//todo })
 
 
+//syntax serving html file we can send an html file through sendFile function but we need to pass the current directory or the main directory of that serving file
+
+app.get("/home", (req, res)=>{
+    res.sendFile("templates/homepage.html", {root:__dirname})
+})
+
+
+app.listen(3000, ()=>{
+    console.log("Server listening at port 3000")
+})
 
 
 //! there is a limit of 2048 characters, we can't send more than these many characters in the get request (get request is basically that we hit using browser)
